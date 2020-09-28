@@ -1,0 +1,16 @@
+<nav>
+  <a (click)="getMediaItems('')">
+    <img src="https://github.com/coursefiles/angular-essential-training/blob/06_04b/src/assets/01.png" class="icon">
+  </a>
+</nav>
+<header>
+  <div>{{ mediaItems | categoryList }} </div>
+</header>
+<section>
+  <mw-media-item 
+  *ngFor="let mediaItem of mediaItems"
+  [mediaItem]="mediaItem " 
+  (delete)="onMediaItemDelete($event)" 
+  [ngClass]="{ 'medium-movies': mediaItem.medium === 'Movies', 'medium-series': mediaItem.medium === 'Series' }">
+  </mw-media-item>
+</section>
